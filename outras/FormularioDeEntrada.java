@@ -1,4 +1,4 @@
-package Model;
+package outras;
 
 public class FormularioDeEntrada extends FormularioDeVistoria {
     // Atributos privados

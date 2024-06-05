@@ -1,4 +1,4 @@
-package Model;
+package outras;
 
 // File: Acomodacoes.java
 import java.util.ArrayList;

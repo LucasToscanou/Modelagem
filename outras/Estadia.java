@@ -1,4 +1,6 @@
-package Model;
+package outras;
+
+import Model.PedidoDeReserva;
 
 import java.util.Date;
 

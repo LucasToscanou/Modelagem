@@ -14,4 +14,9 @@ public class AdministradoraDeCredito {
         // Lógica para a liberação de crédito (pode ser implementada posteriormente)
         return true; // Retornando true para fins de exemplo
     }
+
+
+    public String getNome() {
+        return nomeAdministradora;
+    }
 }

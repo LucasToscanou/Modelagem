@@ -1,4 +1,4 @@
-package Model;
+package outras;
 import java.util.Date;
 
 public class FormularioDeVistoria {

@@ -1,20 +1,21 @@
-package Model;
+// File: Foto.java
+package outras;
 
-public class Comodidades {
-    private String nome;
+public class Foto {
+    private String url;
     private String descricao;
 
-    public Comodidades(String nome, String descricao) {
-        this.nome = nome;
+    public Foto(String url, String descricao) {
+        this.url = url;
         this.descricao = descricao;
     }
 
-    public String getNome() {
-        return nome;
+    public String getUrl() {
+        return url;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getDescricao() {
@@ -27,8 +28,8 @@ public class Comodidades {
 
     @Override
     public String toString() {
-        return "Comodidades{" +
-                "nome='" + nome + '\'' +
+        return "Foto{" +
+                "url='" + url + '\'' +
                 ", descricao='" + descricao + '\'' +
                 '}';
     }

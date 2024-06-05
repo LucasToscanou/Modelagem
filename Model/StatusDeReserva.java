@@ -26,8 +26,4 @@ public enum StatusDeReserva {
         return descricao;
     }
 
-    @Override
-    public String toString() {
-        return codigo + " - " + descricao;
-    }
 }

@@ -21,11 +21,11 @@ public class CartaoDeCredito {
 
     // Método para validar o cartão de crédito
     public boolean validarCartao() {
-        // Aqui você pode implementar a lógica para validar o cartão
-        // Por exemplo, verificar se o número é válido, se a data de validade é futura,
-        // etc.
-        // Neste exemplo, só retornaremos true
-        return true;
+        // Obter a data atual
+        Date dataAtual = new Date();
+
+        // Verificar se a data de validade é igual ou posterior à data atual
+        return !validade.before(dataAtual);
     }
 
     // Métodos getter e setter

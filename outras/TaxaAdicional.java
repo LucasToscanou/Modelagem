@@ -1,5 +1,5 @@
 // File: TaxaAdicional.java
-package Model;
+package outras;
 
 public class TaxaAdicional {
     private String nomeTaxa;

@@ -1,4 +1,8 @@
 package Model;
+import outras.Anfitriao;
+import outras.Estadia;
+import outras.Residencia;
+
 import java.util.Date;
 
 public class PedidoDeReserva {
@@ -24,13 +28,13 @@ public class PedidoDeReserva {
 
     // Método para confirmar a reserva
     public boolean confirmarReserva() {
-        // Lógica para confirmar a reserva (pode ser implementada posteriormente)
+        atualizarStatus(StatusDeReserva.ACEITO_PELO_ANFITRIAO);
         return true; // Retornando true para fins de exemplo
     }
 
     // Método para cancelar a reserva
     public boolean cancelarReserva() {
-        // Lógica para cancelar a reserva (pode ser implementada posteriormente)
+        atualizarStatus(StatusDeReserva.RECUSADO_PELO_ANFITRIAO);
         return true; // Retornando true para fins de exemplo
     }
 
@@ -40,8 +44,11 @@ public class PedidoDeReserva {
     }
 
     // Método para calcular o preço da estadia
-    public Float calcularPreco(Residencia residencia, Estadia estadia) {
-        // Lógica para calcular o preço da estadia (pode ser implementada posteriormente)
-        return 0.0f; // Retornando 0.0f para fins de exemplo
+    public Float calcularPreco() {
+        // Residencia residencia, Estadia estadia
+        float diaria = 100;
+        int dias = 5;
+
+        return dias*diaria; // Retornando 0.0f para fins de exemplo
     }
 }

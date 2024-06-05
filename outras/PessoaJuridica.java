@@ -1,4 +1,6 @@
-package Model;
+package outras;
+
+import Model.Pessoa;
 
 public class PessoaJuridica extends Pessoa {
     // Atributos privados

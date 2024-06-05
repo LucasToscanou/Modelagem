@@ -19,7 +19,9 @@ public class Usuario {
 
     // Método para autenticar o usuário
     public boolean autenticar() {
-        // Lógica para autenticação (pode ser implementada posteriormente)
+        if(this.username == null || this.senha == null || this.tipoUsuario == null) {
+            return false;
+        }
         return true; // Retornando true para fins de exemplo
     }
 

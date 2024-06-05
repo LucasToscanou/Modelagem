@@ -1,5 +1,10 @@
 package Controller;
 import Model.*;
+import outras.Anfitriao;
+import outras.Estadia;
+import outras.FormularioDeVistoria;
+import outras.Residencia;
+
 import java.util.Date;
 
 public class GPTController {

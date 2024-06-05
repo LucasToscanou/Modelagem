@@ -1,4 +1,4 @@
-package Model;
+package outras;
 
 public enum TipoDeResidencia {
     APARTAMENTO(1, "Apartamento"),

@@ -52,12 +52,13 @@ public class Pagamento {
 
     // Método para processar o pagamento
     public boolean processarPagamento() {
-        // Lógica para processar o pagamento (pode ser implementada posteriormente)
-        return true; // Retornando true para fins de exemplo
+        return true;
     }
 
     // Método para atualizar o status do pagamento
     public void atualizarStatus(StatusDePagamento novoStatus) {
         this.statusPagamento = novoStatus;
     }
+
+
 }
