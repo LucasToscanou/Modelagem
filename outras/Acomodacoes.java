@@ -1,7 +1,6 @@
 package outras;
 
-import outras.Comodidades;
-
+import javax.swing.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -47,7 +46,7 @@ public class Acomodacoes {
         this.comodidades.add(comodidade);
     }
 
-    public boolean verificarDisponibilidade(String checkin, String checkout) {
+    public boolean verificarDisponibilidade(String checkin, String checkout, boolean controle) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
         try {
@@ -57,16 +56,33 @@ public class Acomodacoes {
             // Verifica se há sobreposição com os períodos indisponíveis
             for (PeriodoIndisponivel periodo : periodosIndisponiveis) {
                 if (periodo.isSobreposto(checkinDate, checkoutDate)) {
+                    JOptionPane.showMessageDialog(null, "Desculpe, as datas selecionadas não estão disponíveis.", "Indisponível", JOptionPane.INFORMATION_MESSAGE);
                     return false; // Reserva não é válida
                 }
             }
 
-            // Se não houver sobreposição, adiciona o período à lista de períodos indisponíveis
-            periodosIndisponiveis.add(new PeriodoIndisponivel(checkinDate, checkoutDate));
+            if (controle) {
+                // Se controle for verdadeiro, solicita confirmação do usuário
+                int response = JOptionPane.showConfirmDialog(null, "As datas de " + checkin + " a " + checkout + " estão disponíveis.\nDeseja confirmar a reserva?", "Confirmar Reserva", JOptionPane.YES_NO_OPTION);
 
-            return true; // Reserva é válida
+                if (response == JOptionPane.YES_OPTION) {
+                    // Se o usuário confirmar, adiciona o período à lista de períodos indisponíveis
+                    periodosIndisponiveis.add(new PeriodoIndisponivel(checkinDate, checkoutDate));
+                    JOptionPane.showMessageDialog(null, "Reserva confirmada para as datas de " + checkin + " a " + checkout + ".", "Reserva Confirmada", JOptionPane.INFORMATION_MESSAGE);
+                    return true; // Reserva é válida
+                } else {
+                    JOptionPane.showMessageDialog(null, "Reserva não confirmada.", "Reserva Cancelada", JOptionPane.INFORMATION_MESSAGE);
+                    return false; // Reserva não é válida
+                }
+            } else {
+                // Se controle for falso, adiciona o período à lista de períodos indisponíveis sem perguntar ao usuário
+                periodosIndisponiveis.add(new PeriodoIndisponivel(checkinDate, checkoutDate));
+                //JOptionPane.showMessageDialog(null, "Reserva automaticamente confirmada para as datas de " + checkin + " a " + checkout + ".", "Reserva Confirmada", JOptionPane.INFORMATION_MESSAGE);
+                return true; // Reserva é válida
+            }
         } catch (ParseException e) {
             e.printStackTrace(); // Lida com exceção de formatação de data
+            JOptionPane.showMessageDialog(null, "Formato de data inválido. Por favor, use o formato dd/MM/yyyy.", "Erro de Formato", JOptionPane.ERROR_MESSAGE);
             return false; // Reserva não é válida devido a erro de formatação
         }
     }
@@ -105,14 +121,15 @@ public class Acomodacoes {
     public static void main(String[] args) {
         Acomodacoes acomodacao = new Acomodacoes();
 
-        acomodacao.verificarDisponibilidade("01/07/2024", "18/07/2024");
-        acomodacao.verificarDisponibilidade("22/07/2024", "31/07/2025");
+        // Teste com controle = false (reserva automática)
+        /*acomodacao.verificarDisponibilidade("01/07/2024", "18/07/2024", false);
+        acomodacao.verificarDisponibilidade("22/07/2024", "31/07/2025", false);
 
-        /*System.out.println("Períodos indisponíveis: " + acomodacao.getPeriodosIndisponiveis());
+        System.out.println("Períodos indisponíveis: " + acomodacao.getPeriodosIndisponiveis());
 
         System.out.println("\nTentativa de reserva:");
-        System.out.println("Reserva válida de 05/07/2024 a 12/07/2024: " + acomodacao.verificarDisponibilidade("05/07/2024", "12/07/2024"));
-        System.out.println("Reserva inválida de 22/07/2024 a 25/07/2024: " + acomodacao.verificarDisponibilidade("22/07/2024", "25/07/2024"));
-        System.out.println("Reserva válida de 19/07/2024 a 21/07/2024: " + acomodacao.verificarDisponibilidade("19/07/2024", "21/07/2024"));*/
+        System.out.println("Reserva válida de 05/07/2024 a 12/07/2024: " + acomodacao.verificarDisponibilidade("05/07/2024", "12/07/2024", true));
+        System.out.println("Reserva inválida de 22/07/2024 a 25/07/2024: " + acomodacao.verificarDisponibilidade("22/07/2024", "25/07/2024", true));
+        System.out.println("Reserva válida de 19/07/2024 a 21/07/2024: " + acomodacao.verificarDisponibilidade("19/07/2024", "21/07/2024", true));*/
     }
 }

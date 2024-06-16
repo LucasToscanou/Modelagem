@@ -1,5 +1,7 @@
 package View;
 
+import outras.Acomodacoes;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -22,7 +24,7 @@ public class Principal extends JFrame{
         setContentPane(JPPrincipal);
         setTitle("Airbnb | Locações");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(700, 500);
+        setSize(700, 200);
         setLocationRelativeTo(null);
 
         JPImagem.setVisible(false);
@@ -34,7 +36,7 @@ public class Principal extends JFrame{
         lbImagem.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                new teste();
+                new Reserva();
                 dispose();
             }
 
@@ -53,6 +55,7 @@ public class Principal extends JFrame{
         btnBuscar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                setSize(700, 500);
                 JPImagem.setVisible(true);
             }
         });
