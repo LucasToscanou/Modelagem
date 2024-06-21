@@ -1,6 +1,6 @@
 package View;
 
-import outras.Acomodacoes;
+import Model.PedidoDeReserva;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,7 +20,7 @@ public class Principal extends JFrame{
     private JPanel JPImagem;
     private JLabel lbImagem;
 
-    public Principal () {
+    public Principal (PedidoDeReserva pedido) {
         setContentPane(JPPrincipal);
         setTitle("Airbnb | Locações");
         setDefaultCloseOperation(EXIT_ON_CLOSE);

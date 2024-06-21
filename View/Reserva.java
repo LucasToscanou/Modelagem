@@ -1,10 +1,8 @@
 package View;
 
 import outras.Acomodacoes;
-import outras.Comodidades;
 
 import javax.swing.*;
-import java.util.List;
 
 public class Reserva extends JFrame {
     private JPanel JPReserva;

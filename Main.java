@@ -1,4 +1,3 @@
-import Controller.GPTController;
 import View.GPTView;
 
 public class Main {
@@ -10,7 +9,7 @@ public class Main {
         GPTView view = new GPTView();
 
         // Instantiate controller and pass model and view
-        GPTController controller = new GPTController();
+        Controller.Main main = new Controller.Main();
 
         // Run the application
 //        controller.run();

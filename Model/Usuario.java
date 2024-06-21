@@ -10,11 +10,11 @@ public class Usuario {
     private List<CartaoDeCredito> cartaoDeCredito;
 
     // Construtor
-    public Usuario(String username, String senha, String tipoUsuario) {
+    public Usuario(String username){ //, String senha, String tipoUsuario) {
         this.username = username;
-        this.senha = senha;
-        this.tipoUsuario = tipoUsuario;
-        this.cartaoDeCredito = new ArrayList<>();
+//        this.senha = senha;
+//        this.tipoUsuario = tipoUsuario;
+//        this.cartaoDeCredito = new ArrayList<>();
     }
 
     // Método para autenticar o usuário

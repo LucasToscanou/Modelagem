@@ -1,0 +1,30 @@
+{
+  "pedidosDeReserva": [
+    {
+      "usuario": {
+        "username": "Ana"
+      },
+      "anfitriao": {
+        "id": "123"
+      },
+      "residencia": {
+        "id": "123"
+      },
+      "dataInicio": "2024-01-01",
+      "dataFim": "2024-01-10",
+      "statusReserva": "Pendente pelo Anfitrião",
+      "pagamento": {
+        "valorDoPagamento": 123,
+        "data": "2024-01-01",
+        "cartao": {
+          "numero": "123",
+          "nomeNoCartao": "Abc",
+          "validade": "2024-01-01",
+          "cvv": "123",
+          "administradora": "Banco XYZ"
+        },
+        "statusPagamento": "Pagamento Pendente"
+      }
+    }
+  ]
+}
