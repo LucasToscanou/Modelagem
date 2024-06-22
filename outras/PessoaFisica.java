@@ -1,6 +1,6 @@
 package outras;
 
-import Model.Pessoa;
+import model.Pessoa;
 
 public class PessoaFisica extends Pessoa {
     // Atributos privados

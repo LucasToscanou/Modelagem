@@ -1,6 +1,6 @@
 package outras;
 
-import Model.PedidoDeReserva;
+import model.PedidoDeReserva;
 
 import java.util.Date;
 
