@@ -1,20 +1,42 @@
-{
-  "dataFim": "Jul 10, 2024, 12:00:00 AM",
-  "dataInicio": "Jul 1, 2024, 12:00:00 AM",
-  "pagamento": {
-    "valorDoPagamento": 120.0,
-    "data": "Jun 22, 2024, 12:00:00 AM",
-    "cartao": {
-      "numero": "",
-      "nomeNoCartao": "",
-      "validade": "Jan 1, 1999, 12:00:00 AM",
-      "cvv": "",
-      "administradora": {
-        "nomeAdministradora": "Visa"
-      }
+[
+  {
+    "usuario": "aaa",
+    "dataInicio": "Jul 1, 2024, 12:00:00 AM",
+    "dataFim": "Jul 10, 2024, 12:00:00 AM",
+    "pagamento": {
+      "valorDoPagamento": 120.0,
+      "data": "Jun 24, 2024, 12:00:00 AM",
+      "cartao": {
+        "numero": "",
+        "nomeNoCartao": "",
+        "validade": "Jan 1, 1999, 12:00:00 AM",
+        "cvv": "",
+        "administradora": {
+          "nomeAdministradora": "Visa"
+        }
+      },
+      "statusPagamento": "PAGAMENTO_PENDENTE"
     },
-    "statusPagamento": "PAGAMENTO_PENDENTE"
+    "qtdHospedes": 2
   },
-  "qtdHospedes": 2,
-  "usuario": ""
-}
+  {
+    "usuario": "bbb",
+    "dataInicio": "Aug 1, 2024, 12:00:00 AM",
+    "dataFim": "Aug 10, 2024, 12:00:00 AM",
+    "pagamento": {
+      "valorDoPagamento": 120.0,
+      "data": "Jun 24, 2024, 12:00:00 AM",
+      "cartao": {
+        "numero": "",
+        "nomeNoCartao": "",
+        "validade": "Jan 1, 1999, 12:00:00 AM",
+        "cvv": "",
+        "administradora": {
+          "nomeAdministradora": "Visa"
+        }
+      },
+      "statusPagamento": "PAGAMENTO_PENDENTE"
+    },
+    "qtdHospedes": 2
+  }
+]

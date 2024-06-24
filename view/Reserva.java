@@ -44,17 +44,6 @@ public class Reserva extends JFrame {
 
     public Reserva (MainView mainView) {
         this.mainView = mainView;
-//        Acomodacoes acomodacao = new Acomodacoes();
-//
-//        acomodacao.verificarDisponibilidade("01/07/2024", "18/07/2024", false);
-//        acomodacao.verificarDisponibilidade("22/07/2024", "31/07/2025", false);
-
-        //System.out.println("Períodos indisponíveis: " + acomodacao.getPeriodosIndisponiveis());
-
-        //System.out.println("\nTentativa de reserva:");
-        //System.out.println("Reserva válida de 05/07/2024 a 12/07/2024: " + acomodacao.verificarDisponibilidade("05/07/2024", "12/07/2024", true));
-        //System.out.println("Reserva inválida de 22/07/2024 a 25/07/2024: " + acomodacao.verificarDisponibilidade("22/07/2024", "25/07/2024", true));
-        //System.out.println("Reserva válida de 19/07/2024 a 21/07/2024: " + acomodacao.verificarDisponibilidade("19/07/2024", "21/07/2024", true));
 
         setContentPane(JPReserva);
         setTitle("Airbnb | Reserva");
@@ -101,6 +90,11 @@ public class Reserva extends JFrame {
                     try {
                         pedido.setDataInicio(dateFormat.parse(tfCheckin.getText()));
                         pedido.setDataFim(dateFormat.parse(tfCheckout.getText()));
+
+                        if (main.isDateCollision(pedido.getDataInicio(), pedido.getDataFim())) {
+                            JOptionPane.showMessageDialog(null, "Erro: Colisão de datas detectada. Por favor, escolha outras datas.", "Erro de Reserva", JOptionPane.ERROR_MESSAGE);
+                            return;
+                        }
 
                         AdministradoraDeCredito administradora = new AdministradoraDeCredito("Visa");
                         CartaoDeCredito cartao = new CartaoDeCredito(
@@ -183,26 +177,26 @@ public class Reserva extends JFrame {
         });
 
         changeDateBtn.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    {
-                        try {
-                            checkinDate = dateFormat.parse(tfCheckin.getText());
-                            checkoutDate = dateFormat.parse(tfCheckout.getText());
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                {
+                    try {
+                        checkinDate = dateFormat.parse(tfCheckin.getText());
+                        checkoutDate = dateFormat.parse(tfCheckout.getText());
 
-                            calcQtdDiaria();
-                            calcCustoReserva();
-                            calcCustoTotal();
-                            lbNoites.setText(qtdDiaria.toString());
-                            lbCustoReserva.setText(custoReserva.toString());
-                            lbTotal.setText(custoTotal.toString());
+                        calcQtdDiaria();
+                        calcCustoReserva();
+                        calcCustoTotal();
+                        lbNoites.setText(qtdDiaria.toString());
+                        lbCustoReserva.setText(custoReserva.toString());
+                        lbTotal.setText(custoTotal.toString());
 
-                        } catch (ParseException exception) {
-                            throw new RuntimeException(exception);
-                        }
+                    } catch (ParseException exception) {
+                        throw new RuntimeException(exception);
                     }
                 }
-            });
+            }
+        });
     }
 
     private Integer dateDiff(String d1, String d2) {
@@ -229,7 +223,7 @@ public class Reserva extends JFrame {
 
     private void calcCustoTotal(){
         this.custoTotal = this.custoReserva + this.taxaServico + this.taxaLimpeza;
-  ;  }
+        ;  }
 
     private void calcCustoReserva(){
         this.custoReserva = this.custoDiaria * this.qtdDiaria;
